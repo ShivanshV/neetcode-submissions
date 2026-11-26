@@ -1,0 +1,19 @@
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        left = 0
+        right = len(heights) - 1
+        maxTotal = 0
+
+        while left < right:
+
+            maxTotal = max(maxTotal, (right-left)*min(heights[left],heights[right]))
+
+            if heights[left] >= heights[right]:
+                right-=1
+                continue
+            else:
+                left+=1
+                continue
+        
+        return maxTotal
+
